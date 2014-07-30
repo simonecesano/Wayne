@@ -1,0 +1,104 @@
+package Wayne::Controller::Root;
+use Moose;
+use namespace::autoclean;
+
+BEGIN { extends 'Catalyst::Controller' }
+
+#
+# Sets the actions in this controller to be registered with no prefix
+# so they function identically to actions created in MyApp.pm
+#
+__PACKAGE__->config(namespace => '');
+
+=encoding utf-8
+
+=head1 NAME
+
+Wayne::Controller::Root - Root Controller for Charto
+
+=head1 DESCRIPTION
+
+[enter your description here]
+
+=head1 METHODS
+
+=head2 index
+
+The root page (/)
+
+=cut
+
+use Data::Dump qw/dump/;
+
+sub index :Path :Args(0) {
+    my ( $self, $c ) = @_;
+
+    if ($c->req->params->{brief}) {
+	my $brief = $c->req->params->{brief};
+
+	my $season = (uc $1) if $brief =~ s/\s*(SS\d\d|FW\d\d)\s*//i;
+
+	my $m = $c->model('Master::Brief');
+	
+	my $r = $m->search([
+			    { article_name => { -like => "%$brief%" }},
+			    { 'me.brief_id' => { -like => "%$brief%" }}
+			   ]);
+
+	$r = $r->search({ season => $season }) if ($season);
+
+	# $c->log->info(dump $r->as_query);
+
+	$c->stash->{columns} = [qw/brief_id article_name business_unit_int_name upper_tooling_id bottom_tooling_id season perforce input reference/];
+
+	$c->stash->{results} = $r;
+	$c->stash->{template} = 'search/table.tt2';
+    } else {
+	$c->stash->{template} = 'search/form.tt2';
+    }
+    $c->forward('View::HTML');
+};
+
+sub brief :Path('/brief') :Args(1) {
+    my ( $self, $c, $brief ) = @_;
+
+    $c->stash->{columns} = [qw/brief_id article_name marketing_division_name business_unit_int_name season upper_tooling_id bottom_tooling_id/];
+
+    my $m = $c->model('Master::Brief');
+    my $r = $m->search({ brief_id => $brief }, 
+		       { columns => $c->stash->{columns} }
+		      );
+    $c->stash->{data} = $r->first;
+    $c->stash->{template} = 'search/brief.tt2';
+    $c->forward('View::HTML');
+}
+
+
+sub default :Path {
+    my ( $self, $c ) = @_;
+    $c->response->body( 'Page not found' );
+    $c->response->status(404);
+}
+
+=head2 end
+
+Attempt to render a view, if needed.
+
+=cut
+
+sub end : ActionClass('RenderView') {}
+
+=head1 AUTHOR
+
+Cesano, Simone
+
+=head1 LICENSE
+
+This library is free software. You can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
+__PACKAGE__->meta->make_immutable;
+
+1;

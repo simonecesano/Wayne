@@ -1,0 +1,64 @@
+package Wayne::Data::Master::Result::Brief;
+
+use strict;
+use warnings;
+
+use Moose;
+use MooseX::NonMoose;
+use MooseX::MarkAsMethods autoclean => 1;
+extends 'DBIx::Class::Core';
+
+
+__PACKAGE__->table_class('DBIx::Class::ResultSource::View');
+
+__PACKAGE__->table('year2000cds');
+__PACKAGE__->result_source_instance->is_virtual(1);
+__PACKAGE__->
+    result_source_instance->view_definition
+    (<<SQL
+     select master.brief_id, article_name, marketing_division_name, business_unit_int_name, sports_category_name, upper_tooling_id, bottom_tooling_id, season,
+     length(perforce.path) > 0 as perforce,
+     length(input.path) > 0 as input,
+     length(reference.path) > 0 as reference
+     from master
+     left join perforce on master.brief_id = perforce.brief_id
+     left join input on master.brief_id = input.brief_id
+     left join reference on master.brief_id = reference.brief_id
+     group by master.brief_id
+SQL
+    );
+
+__PACKAGE__->add_columns(
+  "brief_id",
+  { data_type => "varchar", is_nullable => 0, size => 32 },
+  "article_name",
+  { data_type => "varchar", is_nullable => 1, size => 30 },
+  "marketing_division_name",
+  { data_type => "varchar", is_nullable => 1, size => 26 },
+  "business_unit_int_name",
+  { data_type => "varchar", is_nullable => 1, size => 19 },
+  "sports_category_name",
+  { data_type => "varchar", is_nullable => 1, size => 15 },
+  "upper_tooling_id",
+  { data_type => "integer", is_nullable => 1 },
+  "bottom_tooling_id",
+  { data_type => "integer", is_nullable => 1 },
+  "season",
+  { data_type => "varchar", is_nullable => 1, size => 4 },
+  "perforce",
+  { data_type => "boolean", is_nullable => 1, size => 4 },
+  "input",
+  { data_type => "boolean", is_nullable => 1, size => 4 },
+  "reference",
+  { data_type => "boolean", is_nullable => 1, size => 4 },
+);
+
+__PACKAGE__->set_primary_key('brief_id');
+
+__PACKAGE__->has_many
+    (
+     perforce_files => 'Wayne::Data::Master::Result::Perforce',
+     { 'foreign.brief_id'  => 'self.brief_id' },
+    );
+
+1;
