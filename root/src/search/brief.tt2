@@ -1,0 +1,20 @@
+[% BLOCK table %]
+<table>
+[% FOR f = c.stash.columns %]
+<tr><td>[% f.replace("_", " ") %]</td><td>[% c.stash.data.$f %]</td></tr>
+[% END %]
+</table>
+[% END %]
+
+[%# --------------------------------------------------------------------------------------------------------------------------------------------- %]
+
+[% BLOCK mail %]
+subject=Template request: [% c.stash.data.brief_id %] | [% c.stash.data.article_name %] | [% c.stash.data.season -%]
+&body=[%- FOR f = c.stash.columns %][% f.replace("_", " ") %]: [% c.stash.data.$f %]%0A[% END %]
+[% END %]
+
+[%# --------------------------------------------------------------------------------------------------------------------------------------------- %]
+
+[% PROCESS table %]
+
+<a href="mailto:simone.cesano@adidas.com?[% PROCESS mail %]">mail request</a>

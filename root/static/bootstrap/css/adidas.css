@@ -1,0 +1,276 @@
+/*
+ *
+ * A D I D A S
+ * Designer Work Bench
+ * Custom styles for Bootstrap
+ * Nordaaker AS, 2014
+ * By Rob Mientjes
+ *
+ */
+@media (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}
+.site-logo {
+  display: block;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 302px;
+  height: 42px;
+  background: url('../img/adidasDWBLogo.png') no-repeat 0 0;
+}
+header nav {
+  margin-top: 25px;
+}
+.focusbox {
+  background: #fff;
+  border: 5px solid #ddd;
+  padding: 10px;
+  margin: 1em 0;
+  min-height: 16em;
+}
+.focusbox.focusbox-arrow {
+  position: relative;
+}
+.focusbox.focusbox-arrow:before,
+.focusbox.focusbox-arrow:after {
+  bottom: 100%;
+  left: 64px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.focusbox.focusbox-arrow:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  border-width: 10px;
+  margin-left: -15px;
+}
+.focusbox.focusbox-arrow:before {
+  border-color: rgba(221, 221, 221, 0);
+  border-bottom-color: #ddd;
+  border-width: 17px;
+  margin-left: -22px;
+}
+.form-control {
+  height: 34px;
+  padding: 5px 10px;
+  margin: 0 0 5px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333;
+  vertical-align: middle;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-control:focus {
+  border-color: #666;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+.btn,
+.btn-primary,
+.btn-default {
+  padding: 5px 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+.btn:focus,
+.btn-primary:focus,
+.btn-default:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn:hover,
+.btn-primary:hover,
+.btn-default:hover,
+.btn-group .btn:hover,
+.btn-group .btn-primary:hover,
+.btn-group .btn-default:hover {
+  background-color: inherit;
+  color: inherit;
+  text-decoration: underline;
+  border-color: transparent;
+}
+.btn:active,
+.btn-primary:active,
+.btn-default:active {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.open .btn.dropdown-toggle,
+.open .btn-primary.dropdown-toggle,
+.open .btn-default.dropdown-toggle {
+  background: #eee;
+  border-color: transparent;
+  box-shadow: none;
+}
+.input-group-btn .btn {
+  border-color: #ccc;
+}
+.btn-primary {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+.btn-tab {
+  background: #ddd;
+}
+.btn-tab.active {
+  background: #fff;
+  color: #666;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-default {
+  border-color: transparent;
+}
+.btn-lg {
+  font-weight: normal;
+}
+.nav li a {
+  padding: 5px 10px;
+}
+.navbar li a {
+  padding: 15px;
+}
+.nav.nav-pills,
+.nav.nav-tabs {
+  margin-bottom: 10px;
+}
+.nav.nav-pills a,
+.nav.nav-tabs a {
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0;
+  border: none;
+  background: #eee;
+}
+.nav.nav-pills a:hover,
+.nav.nav-tabs a:hover {
+  text-decoration: underline;
+}
+.nav.nav-pills .active a,
+.nav.nav-tabs .active a {
+  color: #fff;
+  background: #333;
+  border: none;
+}
+.nav.nav-pills .active a:hover,
+.nav.nav-tabs .active a:hover {
+  border: none;
+  color: #fff;
+  background: #333;
+}
+.nav.nav-pills li,
+.nav.nav-tabs li {
+  margin-right: 5px;
+}
+.nav.nav-tabs {
+  border-bottom: 5px solid #ddd;
+  padding-bottom: 10px;
+}
+.dropdown-menu {
+  border-radius: 0;
+}
+.dropdown-menu li,
+.nav .dropdown-menu li {
+  margin-right: 0;
+}
+.dropdown-menu li a,
+.nav .dropdown-menu li a {
+  background: transparent;
+}
+.list-group {
+  margin-bottom: 10px;
+  border-radius: 0;
+  border-color: #ddd;
+}
+.list-group li {
+  border-color: #ddd;
+}
+.list-group li:first-of-type,
+.list-group li:last-of-type {
+  border-radius: 0;
+}
+a.list-group-item.active,
+.nav-pills > .active > a {
+  background-color: #888;
+  border-color: #888;
+}
+a.list-group-item.active:hover,
+.nav-pills > .active > a:hover {
+  background-color: #666;
+  border-color: #666;
+}
+a.list-group-item.active .list-group-item-text,
+a.list-group-item.active:hover .list-group-item-text,
+a.list-group-item.active:focus .list-group-item-text {
+  color: #eee;
+}
+.pager li a {
+  color: #666;
+  border-radius: 0;
+}
+table {
+  border: 1px solid #ccc;
+  border-width: 1px 0;
+  margin-bottom: 1em;
+}
+table th,
+table td {
+  padding: 4px 5px;
+  border: 1px solid #ccc;
+  border-width: 1px 0;
+}
+table th {
+  border-width: 1px 0 2px;
+}
+dl {
+  margin-bottom: 1em;
+}
+dl dt,
+dl dd {
+  width: 50%;
+  float: left;
+  min-height: 1.8em;
+}
+dl dt {
+  clear: left;
+}
+a {
+  color: #333;
+}
+a:hover {
+  color: #666;
+}
+.heading-icon {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.heading-icon .glyphicon {
+  margin-right: .5em;
+}
+h3.heading-icon {
+  font-size: 16px;
+}
+h2.heading-icon {
+  font-size: 20px;
+}
+* {
+    font-family: adihaus, "Gill Sans", "Gill Sans MT", "Trebuchet MS", Helvetica, sans-serif
+}

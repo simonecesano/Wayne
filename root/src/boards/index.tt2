@@ -1,0 +1,43 @@
+<script src="[% c.uri_for('/static/jqueryui/jquery-ui.min.js') %]"></script>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
+
+<style>
+div.shoe {
+}
+#workarea .shoe svg {
+  width:66%;
+  border:thin solid #eeeeee
+}
+
+#sidebar .shoe svg {
+  width:50%;
+  border:thin solid #eeeeee
+}
+
+#workarea div.shoe {
+   display: inline-block;
+   padding: 1em
+}
+</style>
+  <script>
+$(function() {
+    $('.shoe').draggable()
+})
+  </script>
+  <div class="row">
+    <div class="col-md-11 col-md-offset-0" id="content">
+      <div class="col-md-2 col-md-offset-0" id="sidebar"
+	   style="border:thin solid #eeeeee"> 
+	<div class="shoe">[% INCLUDE 'boards/shoe_1.tt2' %]</div>
+	<div class="shoe">[% INCLUDE 'boards/shoe_2.tt2' %]</div>
+	<div class="shoe">[% INCLUDE 'boards/shoe_3.tt2' %]</div>
+      </div>
+      <div class="col-md-10 col-md-offset-0" id="workarea"
+	   style="border:thin solid #eeeeee">
+	<div class="shoe">[% INCLUDE 'boards/shoe_1.tt2' %]</div>
+	<div class="shoe">[% INCLUDE 'boards/shoe_2.tt2' %]</div>
+	<div class="shoe">[% INCLUDE 'boards/shoe_3.tt2' %]</div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,12 @@
+[% USE POSIX %]
+<table>
+  [%# FOR i = [ 0..c.stash.palette.size ] %]
+  [% WHILE c.stash.palette.size %]
+  <tr>[% col = c.stash.palette.shift; size = c.stash.palette.shift %]
+    <td>[% c.stash.palette.size %]</td>
+    <td>[% col %]</td>
+    <td>[% size %]</td>
+    <td><div style="background-color:[% col %];height:[% 4 * POSIX.log(size * 1000) %];width:[% 4 * POSIX.log(size * 1000) %]">&nbsp;</div></td>
+  </tr>
+  [% END %]
+</table>

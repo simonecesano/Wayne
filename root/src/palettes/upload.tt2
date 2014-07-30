@@ -1,0 +1,30 @@
+  <script src="[% c.uri_for('/static/js/dropzone.js') %]"></script>
+  <script>
+
+Dropzone.autoDiscover = false;
+// or disable for specific dropzone:
+// Dropzone.options.myDropzone = false;
+
+$(function() {
+    var myDropzone =  
+	new Dropzone("#drop",
+		     {
+			 url : "[% c.uri_for('/palettes/upload' ) %]",
+		     });
+    myDropzone.on("success", function(file, res) {
+	window.location = res;
+    });
+})
+
+  </script>
+  <div class="row">
+    <div class="col-md-7 col-md-offset-2" id="content">
+      <div id="drop" class="jumbotron">
+	<h1>drop files here</h1>
+      <form action="[% c.uri_for('/palettes/upload' ) %]"
+      	class="dropzone"
+      	    id="my-awesome-dropzone"></form>
+      </div>
+    </div>
+  </div>
+

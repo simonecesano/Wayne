@@ -1,0 +1,22 @@
+[% INCLUDE 'search/form.tt2' %]
+<div class="row">
+  <a href="p4://library/Footwear/Reference/Project/FW14/BU%20BASKETBALL/BASKETBALL/14100970%20-%20Lightswitch/">here</a>
+  <div class="col-md-7 col-md-offset-2" id="content">
+    <table>
+      <tr>
+	[% FOR h = c.stash.columns %]
+	<th>[% h.replace('_', ' ') %]</th>
+	[% END %]
+      </tr>
+      [% b = c.stash.columns.shift %]
+      [% WHILE (r = c.stash.results.next) %]
+      <tr>
+	<td><a href="[% c.uri_for('brief', r.brief_id) %]">[% r.brief_id %]</a></td>
+	[% FOR h = c.stash.columns %]
+	<td>[% r.$h %]</td>
+	[% END %]
+      </tr>
+      [% END %]
+    </table>
+  </div>
+</div>

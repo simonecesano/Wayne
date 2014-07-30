@@ -1,0 +1,315 @@
+/*
+ *
+ * A D I D A S
+ * Designer Work Bench
+ * Custom styles for Bootstrap
+ * Nordaaker AS, 2014
+ * By Rob Mientjes
+ *
+ */
+
+body {
+  
+}
+
+@media (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}
+
+.site-logo {
+  display: block;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 302px;
+  height: 42px;
+  background: url('../img/adidasDWBLogo.png') no-repeat 0 0;
+}
+
+header nav {
+  margin-top: 25px;
+}
+
+// Create a bordered box
+.focusbox {
+  background: #fff;
+  border: 5px solid #ddd;
+  padding: 10px;
+  margin: 1em 0;
+  min-height: 16em;
+
+  // Put an arrow at the top of the thing
+  // It creates two elements: one to draw the grey triangle,
+  // and one to overlay the white triangle. Together they
+  // simulate the look of a bordered triangle.
+  &.focusbox-arrow {
+    position: relative;
+
+    &:before, &:after {
+      bottom: 100%;
+      left: 64px;// Left + border width + middle of arrow
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:after {
+      border-color: rgba(255,255,255,0);
+      border-bottom-color: #fff;
+      border-width: 10px;
+      margin-left: -15px;
+    }
+    &:before {
+      border-color: rgba(221, 221, 221, 0);
+      border-bottom-color: #ddd;
+      border-width: 17px;
+      margin-left: -22px;
+    }
+  }
+}
+
+// Inputs are simple boxes
+.form-control {
+  height: 34px;
+  padding: 5px 10px;
+  margin: 0 0 5px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333;
+  vertical-align: middle;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+
+  &:focus {
+    border-color: #666;
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.25);
+    box-shadow: 0 0 5px rgba(0,0,0,.25);
+  }
+}
+
+
+// Buttons come in a few styles
+.btn,
+.btn-primary,
+.btn-default {
+  padding: 5px 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0;
+
+  &:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  &:hover,
+  .btn-group &:hover {
+    background-color: inherit;
+    color: inherit;
+    text-decoration: underline;
+    border-color: transparent;
+  }
+  &:active {
+    border-color: inherit;
+//    color: inherit;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
+  .open &.dropdown-toggle {
+    background: #eee;
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.input-group-btn .btn {
+  border-color: #ccc;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+.btn-tab {
+  background: #ddd;
+
+  &.active {
+    background: #fff;
+    color: #666;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+
+.btn-default {
+  border-color: transparent;
+}
+
+.btn-lg {
+  font-weight: normal;
+}
+
+.nav li a {
+  padding: 5px 10px;
+}
+
+.navbar li a {
+  padding: 15px;
+}
+
+.nav.nav-pills,
+.nav.nav-tabs {
+  margin-bottom: 10px;
+
+  a {
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: none;
+    background: #eee;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .active a {
+    color: #fff;
+    background: #333;
+    border: none;
+
+    &:hover {
+      border: none;
+      color: #fff;
+      background: #333;
+    }
+  }
+  li {
+    margin-right: 5px;
+  }
+}
+
+.nav.nav-tabs {
+  border-bottom: 5px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.dropdown-menu {
+  border-radius: 0;
+
+  li,
+  .nav & li {
+    margin-right: 0;
+  }
+  li a,
+  .nav & li a {
+    background: transparent;
+  }
+}
+
+.list-group {
+  margin-bottom: 10px;
+  border-radius: 0;
+  border-color: #ddd;
+
+  li {
+    border-color: #ddd;
+
+    &:first-of-type,
+    &:last-of-type {
+      border-radius: 0;
+    }
+  }
+}
+
+a.list-group-item.active,
+.nav-pills > .active > a {
+  background-color: #888;
+  border-color: #888;
+
+  &:hover {
+    background-color: #666;
+    border-color: #666;
+  }
+}
+a.list-group-item.active .list-group-item-text,
+a.list-group-item.active:hover .list-group-item-text,
+a.list-group-item.active:focus .list-group-item-text {
+  color: #eee;
+}
+
+.pager {
+  li a {
+    color: #666;
+    border-radius: 0;
+  }
+}
+
+table {
+  border: 1px solid #ccc;
+  border-width: 1px 0;
+  margin-bottom: 1em;
+
+  th, td {
+    padding: 4px 5px;
+    border: 1px solid #ccc;
+    border-width: 1px 0;
+  }
+  th {
+    border-width: 1px 0 2px;
+  }
+}
+
+dl {
+  margin-bottom: 1em;
+
+  dt, dd {
+    width: 50%;
+    float: left;
+    min-height: 1.8em;
+  }
+  dt {
+    clear: left;
+  }
+}
+
+a {
+  color: #333;
+
+  &:hover {
+    color: #666;
+  }
+}
+
+
+.heading-icon {
+  font-weight: normal;
+  text-transform: uppercase;
+
+  .glyphicon {
+    margin-right: .5em;
+  }
+}
+
+h3.heading-icon {
+  font-size: 16px;
+}
+h2.heading-icon {
+  font-size: 20px;
+}
+
+
+

@@ -1,0 +1,12 @@
+<style>
+  #leftmenu { background-color: red }
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-0" id="header">[% PROCESS site/header %]</div>
+    <div class="col-md-12 col-md-offset-0" id="content">
+      [% content %]
+    </div>
+  </div>
+</div>
+[% PROCESS site/footer %]

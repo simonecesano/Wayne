@@ -1,0 +1,33 @@
+<style>
+  #content { background-color: white; height: 100% }
+  #bar { 
+  background-color: grey;  
+  float:left;
+  height: 100%; 
+  padding: 0;
+  margin: 0 
+  }
+
+  #navbar a { border-bottom: medium solid black; margin-left: 3em }
+  #navbar li:first-child a { margin-left: 0em }
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1 col-md-offset-0" id="bar">
+      <ul>
+	<li>uno</li>
+	<li>due</li>
+	<li>tre</li>
+      </ul>
+    </div>
+    <div class="col-md-10 col-md-offset-0" id="content">
+      <div class="row">
+      [% PROCESS site/header %]
+      </div>
+      <div class="col-md-10 col-md-offset-0" id="content">
+	[% content %]
+      </div>
+    </div>
+  </div>
+</div>
+[% PROCESS site/footer %]

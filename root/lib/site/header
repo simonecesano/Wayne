@@ -1,0 +1,28 @@
+<div class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <ul id="navbar" class="nav navbar-nav" >
+	<li class="active"><a href="[% c.uri_for('/') %]">search</a></li>
+	<li class="active">
+	  <a href="#" class="dropdown" data-toggle="dropdown">palettes<b class="caret"></b></a>
+	  <ul class="dropdown-menu">
+            <li><a href="[% c.uri_for('/palettes/upload') %]">upload</a></li>
+            <li><a href="[% c.uri_for('/palettes/bar') %]">organize</a></li>
+            <li class="divider"></li>
+            <li><a href="#">data</a></li>
+          </ul>	  
+	</li>
+	<li class="active">
+	  <a href="#" class="dropdown" data-toggle="dropdown">boards<b class="caret"></b></a>
+	  <ul class="dropdown-menu">
+            <li><a href="[% c.uri_for('/boards/grid') %]">grid</a></li>
+            <li><a id="add"  href="#">add element</a></li>
+            <li><a id="save" href="#">save</a></li>
+            <li class="divider"></li>
+            <li><a href="#">data</a></li>
+          </ul>	  
+	</li>
+      </ul>
+    </div>
+  </div>
+</div>

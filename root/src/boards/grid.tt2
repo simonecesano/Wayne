@@ -1,0 +1,51 @@
+<script src="[% c.uri_for('/static/js/jquery.gridster.min.js') %]"></script>
+<link rel="stylesheet" href="[% c.uri_for('/static/js/jquery.gridster.min.css') %]">
+<style>
+.gridster {
+    border:thin solid #eeeeee;
+}
+
+.gridster img {
+    width:90%;
+}
+.gridster li {
+    border:thin solid #eeeeee;
+    list-style: none;
+}
+
+</style>
+
+<div class="gridster">
+  <ul>
+    [% FOR i = [1..16] %]
+    <li id="[% 'foo_' _ i %]" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <img src="data:image/png;base64,[% t = 'boards/shoe_' _ i _ '.b64'; INCLUDE $t  %]"><br/>shoe [% i %]</li>
+    [% END %]
+  </ul>
+</div>
+<script>
+$(function(){ 
+    var gridster = $(".gridster ul").gridster({
+	widget_margins: [10, 10],
+	widget_base_dimensions: [120, 60]
+    }).data('gridster');
+
+    $('#add').click(function(e){
+	console.log($('.gridster ul').gridster())
+	gridster.add_widget('<li class="new" >new</li>', 1, 1);    
+    })
+
+    $('#save').click(function(e){
+	var s = {};
+	$('.gridster li').each(function(i, e){
+	    s[$(e).attr('id')] = [$(e).attr('data-row'), $(e).attr('data-col')];
+	});
+	console.log(s) 
+    })
+
+    $('.gridster').delegate('li.new', 'dblclick', function(e){
+    	alert('boo')
+    })
+
+});
+</script>
